@@ -1,0 +1,11 @@
+
+# Node dependencies
+node_modules/
+
+# Terraform state and providers
+eks-cluster/.terraform/
+eks-cluster/terraform.tfstate*
+
+# Helm chart dependencies
+my-chart/charts/
+
