@@ -27,10 +27,13 @@ jobs:
     - name: Set up Helm
       uses: azure/setup-helm@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }} # More direct way to pass the token
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update kubeconfig
       run: aws eks --region eu-west-2 update-kubeconfig --name hello-helm-cluster
+
+    - name: Build Helm Dependencies
+      run: helm dependency build ./my-chart
 
     - name: Deploy with Helm
       run: |
