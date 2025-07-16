@@ -9,3 +9,8 @@ eks-cluster/terraform.tfstate*
 # Helm chart dependencies
 my-chart/charts/
 
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+
