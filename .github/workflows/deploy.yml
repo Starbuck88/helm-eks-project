@@ -31,6 +31,8 @@ jobs:
       run: aws eks --region eu-west-2 update-kubeconfig --name hello-helm-cluster
 
     - name: Deploy with Helm
+      env:
+	GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         helm upgrade --install hello-helm-release ./my-chart \
           --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/devops-project-app \
