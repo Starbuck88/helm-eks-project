@@ -32,6 +32,9 @@ jobs:
     - name: Update kubeconfig
       run: aws eks --region eu-west-2 update-kubeconfig --name hello-helm-cluster
 
+    - name: Add Bitnami Helm Repo
+      run: helm repo add bitnami https://charts.bitnami.com/bitnami
+
     - name: Build Helm Dependencies
       run: helm dependency build ./my-chart
 
